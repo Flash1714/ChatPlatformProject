@@ -1,9 +1,54 @@
 ﻿@page "/"
+@inject NavigationManager NavigationManager
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Counter</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Counter</h1>
 
-Welcome to your new app.
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+
+@code
+{
+	// Making a hub connection 
+	private HubConnection? hubConnection;
+	private string messages = string.Empty; //For text area where all messages are shown
+	private string username = string.Empty;
+	private string message = string.Empty;
+
+	private async Task Connect()
+	{
+		hubConnection = new HubConnectionBuilder()
+			.WithUrl(NavigationManager.ToAbsoluteUri("/chathub"))  //Navigating to that endpoint in program.cs
+			.Build();
+
+
+		hubConnection.On<string, string>("RecieveMessage", (user,message) =>
+		{
+			var msg = $"{(string.IsNullOrEmpty(user) ? " " : user + ": ")} {message}";
+			messages += msg + '\n';
+			StateHasChanged();
+		});
+
+		await hubConnection.StartAsync();
+	}
+
+	private async Task Send()
+	{
+		if(hubConnection != null)
+		{
+			await hubConnection.SendAsync("AddMessageToChat", username, message);
+			message = string.Empty;
+		}
+	}
+
+	public bool IsConnected => hubConnection? .State == HubConnectionState.Connected;
+
+	public async ValueTask DisposeAsync()
+	{
+		if (hubConnection != null)
+		{
+			await hubConnection.DisposeAsync();
+		}
+	}
+
+}

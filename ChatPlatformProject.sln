@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatPlatformProject.Server", "ChatPlatformProject\Server\ChatPlatformProject.Server.csproj", "{815A266A-B305-44B8-9370-83EEBE513C70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatPlatformProject.Server", "ChatPlatformProject\Server\ChatPlatformProject.Server.csproj", "{815A266A-B305-44B8-9370-83EEBE513C70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatPlatformProject.Client", "ChatPlatformProject\Client\ChatPlatformProject.Client.csproj", "{6C17373A-A839-4A8D-BD4F-C039F95A8F77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatPlatformProject.Client", "ChatPlatformProject\Client\ChatPlatformProject.Client.csproj", "{6C17373A-A839-4A8D-BD4F-C039F95A8F77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatPlatformProject.Shared", "ChatPlatformProject\Shared\ChatPlatformProject.Shared.csproj", "{62649D7D-0C6C-4870-8489-359ACDD342B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatPlatformProject.Shared", "ChatPlatformProject\Shared\ChatPlatformProject.Shared.csproj", "{62649D7D-0C6C-4870-8489-359ACDD342B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
