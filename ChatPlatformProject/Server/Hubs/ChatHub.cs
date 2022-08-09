@@ -1,0 +1,26 @@
+﻿using Microsoft.AspNetCore.SignalR;
+
+namespace ChatPlatformProject.Server.Hubs
+{
+    public class ChatHub : Hub
+    {
+        //When user connects 
+
+        public override async Task OnConnectedAsync()
+        {
+            // Uses the function below to acknowledge new person joining in.
+            await SendMessage("", "New User Connected!"); 
+            await base.OnConnectedAsync(); //call base ????
+        }
+        
+
+        //For sending messages 
+        private async Task SendMessage(string user, string message)
+        {
+            // Sends the Hub update to all clients (users). "RecieveMessage" is an identifier.
+            await Clients.All.SendAsync("RecieveMessage", user, message);
+        }
+
+
+    }
+}
