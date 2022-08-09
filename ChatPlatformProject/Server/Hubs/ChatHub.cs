@@ -4,7 +4,7 @@ namespace ChatPlatformProject.Server.Hubs
 {
     public class ChatHub : Hub
     {
-        //When user connects 
+        //When user connects (made second becauses it uses the first function)
 
         public override async Task OnConnectedAsync()
         {
@@ -14,7 +14,7 @@ namespace ChatPlatformProject.Server.Hubs
         }
         
 
-        //For sending messages 
+        //For sending messages  (Made first)
         private async Task SendMessage(string user, string message)
         {
             // Sends the Hub update to all clients (users). "RecieveMessage" is an identifier.
