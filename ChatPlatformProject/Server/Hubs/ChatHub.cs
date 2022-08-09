@@ -21,6 +21,6 @@ namespace ChatPlatformProject.Server.Hubs
             await Clients.All.SendAsync("RecieveMessage", user, message);
         }
 
-
+        // Satarting to make the chat hub program : after this we add service and response compression in program.cs
     }
 }
