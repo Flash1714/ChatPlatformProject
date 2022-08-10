@@ -15,7 +15,7 @@ namespace ChatPlatformProject.Server.Hubs
         
 
         //For sending messages  (Made first)
-        private async Task AddMessageToChat(string user, string message)
+        public async Task AddMessageToChat(string user, string message)
         {
             // Sends the Hub update to all clients (users). "RecieveMessage" is an identifier.
             await Clients.All.SendAsync("RecieveMessage", user, message);
