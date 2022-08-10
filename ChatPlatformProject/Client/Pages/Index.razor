@@ -16,8 +16,8 @@
 	</div>
 }
 else
-{
-	<textarea style="width : 100%; height : 500px;">
+{ 
+	<textarea style="width : 100%; height : 500px;" @ref = "TextAreaRef">
 		@messages
 	</textarea>
 	<div class="input-group">
@@ -43,6 +43,7 @@ else
 	private string messages = string.Empty; //For text area where all messages are shown
 	private string username = string.Empty;
 	private string message = string.Empty;
+	ElementReference TextAreaRef;
 
 	private async Task Connect()
 	{
