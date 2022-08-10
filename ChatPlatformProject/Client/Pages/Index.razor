@@ -4,12 +4,12 @@
 
 <PageTitle>ChatApp Project</PageTitle>
 
-<h1>Please work for the love of all that's holy</h1>
+
 
 @if(!IsConnected)
 {
 	<div class="input-group"> 
-		<input @bind="username" class=" form-control" placeholder="Naam daalne ka yaha pe">
+		<input @bind="username" class=" form-control" placeholder="Enter Username Here!">
 		<button class="btn btn-primary form-control-append" @onclick = "Connect">
 			Connect
 		</button>
@@ -47,7 +47,7 @@ else
 	private async Task Connect()
 	{
 		hubConnection = new HubConnectionBuilder()
-			.WithUrl(NavigationManager.ToAbsoluteUri("/chathub")).Build();  
+			.WithUrl(NavigationManager.ToAbsoluteUri($"/chathub?username={username}")).Build();  
 			
 		//Navigating to that endpoint in program.cs
 			
